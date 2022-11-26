@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Child = () => {
-    const [counter,setCounter] = useState(0)
+const Child = ({counter,setCounter}) => {
+   
+    const boxDesign = {
+        padding: 10,
+        border: '1px solid red',
+        borderRadius: 4,
+        margin: 10,
+    }
     return (
-        <div>
-            <h1>Children</h1>
-            <h1>{counter}</h1>
-            <button onClick={()=>setCounter(counter + 1)}>Increment</button>
-            <button onClick={()=>setCounter((privies)=>privies-1)}>Decrement</button>
-        </div>
+      <div style={boxDesign}>
+        <p>Children</p>
+        <h1>{counter}</h1>
+        <button onClick={() => setCounter(counter + 1)}>Increment</button>
+        <button
+          style={{ marginLeft: 5 }}
+          onClick={() => setCounter((privies) => privies - 1)}
+        >
+          Decrement
+        </button>
+      </div>
     );
 };
 
