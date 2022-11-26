@@ -1,13 +1,18 @@
-// import logo from './logo.svg';
-import './App.css';
-import Child from './Pages/Child/Child';
+import { createContext, useState } from 'react';
 import Parent from './Pages/Parent/Parent';
-
+import './App.css';
+export const CREATE_CONTEXT = createContext()
 function App() {
+  const [counter, setCounter] = useState(0);
+  const value = {
+    counter,setCounter
+  }
   return (
-    <div className="App">
-      <Parent/>
-    </div>
+    <CREATE_CONTEXT.Provider value={value}>
+      <div className="App">
+        <Parent />
+      </div>
+    </CREATE_CONTEXT.Provider>
   );
 }
 
