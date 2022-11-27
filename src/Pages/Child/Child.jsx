@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { CREATE_CONTEXT } from "../../App";
+import React from "react";
 
 const Child = () => {
   const boxDesign = {
@@ -9,15 +8,13 @@ const Child = () => {
     margin: 10,
     width: "18%",
     };
-    const { counter,setCounter } = useContext(CREATE_CONTEXT);
   return (
     <div style={boxDesign}>
       <p>Children</p>
-      <h1>{counter}</h1>
-      <button onClick={() => setCounter(counter + 1)}>Increment</button>
+      <h1>1</h1>
+      <button>Increment</button>
       <button
         style={{ marginLeft: 5 }}
-        onClick={() => setCounter((privies) => privies - 1)}
       >
         Decrement
       </button>
