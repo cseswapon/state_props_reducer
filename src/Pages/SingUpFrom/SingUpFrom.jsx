@@ -1,38 +1,8 @@
 import React, { useReducer } from "react";
+import { initialState, reducer } from "../state/FromReducer";
 
 export default function SingUpFrom() {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "",
-    education: "",
-    number: 0,
-    feedback: "",
-    term: false,
-  };
-  const reducer = (state, action) => {
-    console.log(state);
-    switch (action.type) {
-      case "INPUT":
-        return {
-          ...state,
-          [action.payload.name]: action.payload.value,
-        };
-      case "INCREMENT":
-        return {
-          ...state,
-          number: state.number + action.payload.number,
-        };
-      case "DECREMENT":
-        return {
-          ...state,
-          number: state.number - action.payload.number,
-        };
-      default:
-        return state;
-    }
-  };
+ 
   const [state, dispatch] = useReducer(reducer, initialState);
   const submit = (e) => {
     e.preventDefault();
