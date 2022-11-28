@@ -1,13 +1,10 @@
-import { createContext } from "react";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import SingUpFrom from "./Pages/SingUpFrom/SingUpFrom";
-// import Counter from "./Pages/Counter/Counter";
-export const CREATE_CONTEXT = createContext();
+import { router } from "./Route/route";
 function App() {
   return (
     <>
-      {/* <Counter /> */}
-      <SingUpFrom />
+      <RouterProvider router={router} />
     </>
   );
 }
