@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { CREATECONTEXTS } from "../context/ProductProvider";
+import { PRODUCT_CONTEXT } from "../context/ProductProvider";
 
 export const useProductProvider = () => {
-    const contexts = useContext(CREATECONTEXTS);
+    const contexts = useContext(PRODUCT_CONTEXT);
     return contexts;
 }
