@@ -19,7 +19,11 @@ export default function TopRate() {
   if (!loading && !error && products.length) {
     content = products
       .filter((product) => product.rating >= 4)
-      .map((product, i) => <ProductCard key={product._id} product={product} />);
+      .map((product, i) => <ProductCard key={i} product={product} />);
   }
-  return <div className="max-w-7xl px-5 mx-auto">{content}</div>;
+  return (
+    <div className="max-w-7xl px-5 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-4">
+      {content}
+    </div>
+  );
 }

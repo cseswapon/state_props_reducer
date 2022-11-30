@@ -4,6 +4,7 @@ export const initializeState = {
   loading: false,
   products: [],
   error: false,
+  cart: [],
 };
 export const productReducer = (state, action) => {
   switch (action.type) {
@@ -20,6 +21,12 @@ export const productReducer = (state, action) => {
         products: action.payload,
         error: false,
       };
+    case productActionType.PRODUCT_CART:
+      return console.log(action);
+      /* return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      }; */
     default:
       return state;
   }
