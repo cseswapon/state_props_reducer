@@ -17,10 +17,11 @@ const ProductProvider = ({ children }) => {
           payload: data,
         })
       )
-      .catch(() => dispatch({ type: productActionType.FETCHING_ERROR }));
+      .catch(() => dispatch(
+        { type: productActionType.FETCHING_ERROR }
+      ));
   }, []);
   const value = { state, dispatch };
-  // console.log(value,"Hello world");
   return (
     <PRODUCT_CONTEXT.Provider value={value}>
       {children}

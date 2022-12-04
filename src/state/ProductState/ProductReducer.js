@@ -21,12 +21,17 @@ export const productReducer = (state, action) => {
         products: action.payload,
         error: false,
       };
+    case productActionType.FETCHING_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+      };
     case productActionType.PRODUCT_CART:
-      return console.log(action);
-      /* return {
+      return {
         ...state,
         cart: [...state.cart, action.payload],
-      }; */
+      };
     default:
       return state;
   }
