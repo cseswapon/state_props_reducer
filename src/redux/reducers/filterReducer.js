@@ -3,7 +3,7 @@ import { TOGGLE_BRAND, TOGGLE_STOCK } from "../actionTypes/actionTypes";
 const initialState = {
   filter: {
     brand: [],
-    stock: "",
+    stock: true,
   },
   keyword: "",
 };
@@ -11,15 +11,33 @@ const initialState = {
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_BRAND:
+      if (!state.filter.brand.includes(action.payload)) {
+        return {
+          ...state,
+          filter: {
+            ...state.filter,
+            brand: [...state.filter.brand, action.payload],
+          },
+        };
+      } else {
+        return {
+          ...state,
+          filter: {
+            ...state.filter,
+            brand: state.filter.brand.filter(
+              (brand) => brand !== action.payload
+            ),
+          },
+        };
+      }
+    case TOGGLE_STOCK:
       return {
         ...state,
         filter: {
           ...state.filter,
-          brand: [...state.filter.brand, action.payload],
-        },
+          stock:!state.filter.stock
+        }
       };
-    case TOGGLE_STOCK:
-      return {};
     default:
       return state;
   }
