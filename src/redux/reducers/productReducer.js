@@ -1,6 +1,9 @@
 import {
   ADD_PRODUCT,
   ADD_TO_CART,
+  CREATE_PRODUCT,
+  DELETE_PRODUCT,
+  LOAD_PRODUCT,
   PRODUCT_LOADED,
   REMOVE_FROM_CART,
   REMOVE_PRODUCT,
@@ -17,6 +20,24 @@ const productReducer = (state = initialState, action) => {
   );
 
   switch (action.type) {
+    case LOAD_PRODUCT:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    case CREATE_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+      };
+    case DELETE_PRODUCT:
+      // alert("Delete Product");
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product._id !== action.payload
+        ),
+      };
     case ADD_PRODUCT:
       return {
         ...state,
